@@ -11,7 +11,7 @@
         if (n<1){
             if(sum==x){
                 return 1;
-
+            }
             else{
                 return 0;
             }

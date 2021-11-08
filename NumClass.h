@@ -13,7 +13,4 @@ int numLength (int x);
 int isArmstrongg(int x,int n, int sum);
 int revers(int x,int rev,int half);
 
-
-
-
 #endif
