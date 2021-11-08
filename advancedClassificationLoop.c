@@ -3,17 +3,6 @@
 #include <stdio.h>
 
 
-// int numLength (int x){ //help
-
-//     int n=x;
-//     int countDigit=0;
-//     while(n>=1){
-//         n /= 10;
-//         ++countDigit;
-//     }
-//     return countDigit;
-// }
-
 int isArmstrong(int x){ //loop
 
     int countDigit= numLength(x);

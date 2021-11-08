@@ -2,50 +2,16 @@
 #include <math.h>
 #include <stdio.h>
 
-    int secondDigit(int x){ // help
-
-        int countDigit= numLength(x);
-        if (countDigit <2){
-            return -1;
-        }
-
-        int a= (int) pow(10,countDigit-2);
-        int b= x%a;
-        int Dig=(x-b)/a;
-        Dig= Dig%10;
-        return Dig;
-    }
-
-// int isPalindrome(int x){ // recursion
-//     int r= 0;
-//     if (x<10){
-//         return 1;
-//     }
-//     else{
-//         if(x%10 != firstDigit(x)){
-//             return 0;
-//         }
-//         else{
-//             x= (int) (x/10);
-//             int a=numLength(x)-1;
-//             x= x% ((int)pow(10,a));
-//             r= isPalindrome(x);
-//         }
-//     }
-//     return r;
-// }
-
-int isArmstrong(int x) { // recursion
+ int isArmstrong(int x) { // recursion
    return isArmstrongg(x,x,0);
 }
- 
 
     int isArmstrongg(int x,int n, int sum) { // help
         int r=0;
         if (n<1){
             if(sum==x){
                 return 1;
-            }
+
             else{
                 return 0;
             }
@@ -61,48 +27,30 @@ int isArmstrong(int x) { // recursion
         return r;
     }
 
-    int firstDigit(int x){ // help
 
-        int countDigit= numLength(x);
-
-        int a= (int) pow(10,countDigit-1);
-        int b= x%a;
-        int Dig=(x-b)/a;
-        return Dig;
-    }
-
-
-
-
-    int isPalindrome(int x){ // recursion
-        int r= 0;
-        if (x<10){
+    int isPalindrome(int x) { // recursion
+        if(x%10==0){
+            return 0;
+        }
+        else if (revers(x,0,x)==x){
             return 1;
         }
         else{
-            if(x%10 != firstDigit(x)){
-                return 0;
-            }
-            else{
-                x= (int) (x/10);
-                if (secondDigit(x)==0){
-                    int l= x%10;
-                    if (l==0){
-                        int a = numLength(x) - 1;
-                        int b = (int) pow(10, a);
-                        x = (int) (x % b);
-                        r = isPalindrome(x);                    }
-                    else{
-                        return 0;
-                    }
-                }
-                else {
-                    int a = numLength(x) - 1;
-                    int b = (int) pow(10, a);
-                    x = (int) (x % b);
-                    r = isPalindrome(x);
-                }
-            }
+            return 0;
         }
-        return r;
     }
+
+    int revers(int x,int rev,int half) { // help
+        int num=numLength(half);
+        if (half==0){
+            return rev;
+        }
+        int dig= half%10;
+        rev= rev + dig*(int)pow(10,num-1);
+        half=(int) half/10;
+
+        return revers (x,rev,half);
+    }
+
+
+
